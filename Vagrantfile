@@ -2,7 +2,7 @@ Vagrant.configure("2") do |config|
     config.vm.box = "generic/centos9s"
     config.vm.network "forwarded_port", guest: 80, host: 8888
     
-    config.vm.synced_folder "/usr/share/nginx/html", "./www-content", create: true
+    config.vm.synced_folder "./www-content", "/usr/share/nginx/html", create: true
     
     config.vm.provision "shell", inline: <<-SHELL
       yum install -y epel-release
